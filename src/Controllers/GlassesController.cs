@@ -14,13 +14,13 @@ public class GlassesController : ControllerBase
   }
 
   [HttpGet(Name = "GetGlasses")]
-  public IActionResult GetAll()
+  public ActionResult<IEnumerable<Models.Glasses>> GetAll()
   {
     return Ok(GlassesService.GetAll());
   }
 
   [HttpGet("{id}")]
-  public IActionResult Get(int id)
+  public ActionResult<Models.Glasses> Get(int id)
   {
     Models.Glasses? glasses = GlassesService.Get(id);
     if (glasses == null) return NotFound();
